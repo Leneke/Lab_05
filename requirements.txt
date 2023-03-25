@@ -1,0 +1,4 @@
+easygui==0.98.3
+image==1.5.33
+Pillow==9.4.0
+requests==2.28.2

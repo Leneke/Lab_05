@@ -1,3 +1,4 @@
+# Task №1. Implement an application for downloading pictures with cats.
 from PIL import Image
 from easygui import *
 import requests
@@ -5,12 +6,14 @@ import sys
 
 
 def cats_img():
+    # Get image and save to file
     response = requests.get("https://cataas.com/cat")
     if response.status_code == 200:
         with open("cats.png", "wb") as img_file:
             img_file.write(response.content)
             img_file.close()
 
+# Adjusting the image size
     image_path = "cats.png"
     img = Image.open(image_path)
     width = img.size[0]
@@ -31,7 +34,7 @@ def cats_img():
             new_img = img.resize((new_width, new_height), Image.LANCZOS)
             new_img.save("cats.png")
 
-
+# Customizing the graphical interface
 title = "Pictures with cats"
 msg = "Do you want to see pictures with cats?"
 choices = ["Yes, I love cats", "No, I don't want to"]
